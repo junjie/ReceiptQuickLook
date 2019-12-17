@@ -273,6 +273,7 @@ bail:
         
         switch (attr_type) {
                 // Attributes encoded as ASN.1 UTF8STRING
+			case ReceiptAttribute_UNDOCUMENTED_TypeReceiptType:
             case ReceiptAttributeTypeBundleId:
             case ReceiptAttributeTypeBundleVersion:
             case ReceiptAttributeTypeOriginalApplicationVersion:
@@ -298,6 +299,7 @@ bail:
             case InAppAttributeTypeOriginalPurchaseDate:
             case InAppAttributeTypePurchaseDate:
             case InAppAttributeTypeSubscriptionExpirationDate:
+			case ReceiptAttribute_UNDOCUMENTED_TypeOriginalPurchaseDate:
             {
                 int str_type = 0;
                 long str_length = 0;
@@ -314,6 +316,17 @@ bail:
             case InAppAttributeTypeQuantity:
             case InAppAttributeTypeWebOrderLineItemId:
             case InAppAttributeTypeSubscriptionIntroductoryPricePeriod:
+			case InAppAttributeType_UNKNOWN_Type1707:
+			case InAppAttributeType_UNKNOWN_Type1710:
+			case InAppAttributeType_UNKNOWN_Type1713:
+			case ReceiptAttribute_UNDOCUMENTED_TypeAppItemId:
+			case ReceiptAttribute_UNKNOWN_Type9:
+			case ReceiptAttribute_UNKNOWN_Type13:
+			case ReceiptAttribute_UNDOCUMENTED_TypeDownloadId:
+			case ReceiptAttribute_UNDOCUMENTED_TypeExternalVersionIdentifier:
+			case ReceiptAttribute_UNKNOWN_Type11:
+			case ReceiptAttribute_UNKNOWN_Type14:
+			case ReceiptAttribute_UNKNOWN_Type25:
             {
                 int num_type = 0;
                 long num_length = 0;
@@ -353,11 +366,11 @@ bail:
                 
             default:
                 break;
-        }
+			}
         
         if (value) {
             [result setObject:value forKey:key];
-        }
+		}
 
         // Move past the attribute
         ptr += length;

@@ -28,6 +28,10 @@
     if ([key isKindOfClass:[NSNumber class]]) {
         int num = [key intValue];
         switch (num) {
+			case ReceiptAttribute_UNDOCUMENTED_TypeReceiptType:
+				return NSLocalizedString(@"(Undocumented) Receipt Type [%@]", nil);
+			case ReceiptAttribute_UNDOCUMENTED_TypeAppItemId:
+				return NSLocalizedString(@"(Undocumented) App Item Id [%@]", nil);
             case ReceiptAttributeTypeBundleId:
                 return NSLocalizedString(@"Bundle Identifier [%@]", nil);
             case ReceiptAttributeTypeBundleVersion:
@@ -38,8 +42,14 @@
                 return NSLocalizedString(@"Receipt Hash [%@]", nil);
             case ReceiptAttributeTypeCreationDate:
                 return NSLocalizedString(@"Creation Date [%@]", nil);
+			case ReceiptAttribute_UNDOCUMENTED_TypeDownloadId:
+				return NSLocalizedString(@"(Undocumented) Download Id [%@]", nil);
+			case ReceiptAttribute_UNDOCUMENTED_TypeExternalVersionIdentifier:
+				return NSLocalizedString(@"(Undocumented) External Version Identifier [%@]", nil);
             case ReceiptAttributeTypeInAppPurchase:
                 return NSLocalizedString(@"InApp Purchases [%@]", nil);
+			case ReceiptAttribute_UNDOCUMENTED_TypeOriginalPurchaseDate:
+				return NSLocalizedString(@"(Undocumented) Original Purchase Date [%@]", nil);
             case ReceiptAttributeTypeOriginalApplicationVersion:
                 return NSLocalizedString(@"Bundle Version (Original) [%@]", nil);
             case ReceiptAttributeTypeExpirationDate:
